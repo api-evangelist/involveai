@@ -1,7 +1,15 @@
 aid: involveai
 name: Involve.AI
-description: Involve.AI is a company surfaced as a portfolio company of techstars and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Involve.AI is an AI-driven customer intelligence platform for customer success and
+  revenue teams. It unifies data from CRM, support, product-usage, and billing systems
+  to calculate customer health scores and power an Early Warning System that predicts
+  churn and surfaces renewal and upsell opportunities, with a 9Factor model scoring
+  qualitative and quantitative signals. Founded as a Techstars-backed startup, Involve.AI
+  was absorbed into Jeeva.ai — the involve.ai domain now redirects to jeeva.ai, while the
+  original customer knowledge base remains live at city.involve.ai. Involve.AI integrated
+  with source systems rather than exposing a public developer REST API, so this profile
+  documents company identity rather than an API surface.
 url: https://raw.githubusercontent.com/api-evangelist/involveai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,11 +17,32 @@ x-backed-by:
 - techstars
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-successor: https://jeeva.ai/
+x-status: acquired
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://www.involve.ai/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
+- Customer Intelligence
+- Customer Success
+- Customer Health Score
+- Churn Prediction
+- Artificial Intelligence
+- SaaS
+- Revenue Operations
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,5 +50,18 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/involveai-domain-security.yml
 - type: Website
-  url: https://involvesoft.com/
+  url: https://www.involve.ai/
+- type: HelpCenter
+  url: https://city.involve.ai/
+- type: Documentation
+  url: https://city.involve.ai/knowledge-base
+- type: LinkedIn
+  url: https://www.linkedin.com/company/involveai
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
