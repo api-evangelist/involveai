@@ -1,0 +1,70 @@
+generated: '2026-08-13'
+method: probed
+source: >-
+  Live HTTP/DNS probes of involve.ai hosts plus the company's own customer community at
+  city.involve.ai and the GitHub organization API, 2026-08-13.
+note: >-
+  This is a retirement record, not an API lifecycle policy. Involve.AI publishes no versioning
+  policy, no deprecation policy, no Sunset/Deprecation header contract, no SLA and no status page
+  — because it published no developer API. What the probes DO establish is that the Involve.AI
+  brand and product surface have been wound down into Jeeva AI. No StatusPage or Deprecation
+  pointer is emitted in apis.yml, because neither page exists.
+versioning:
+  scheme: null
+  current: null
+  docs: null
+deprecation:
+  policy_url: null
+  sunset_header: false
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+deprecated_operations: []
+product_lifecycle:
+  stage: retired
+  successor: https://www.jeeva.ai/
+  successor_profile: https://github.com/api-evangelist/jeeva-ai
+  rename: >-
+    Involve.AI was renamed rather than shut down. The GitHub organization login is still
+    "Involve-AI" while its display name is now "Jeeva AI" and its blog field is jeeva.ai, which
+    is the clearest single piece of evidence tying the two identities together.
+  evidence:
+  - {url: 'https://www.involve.ai/', status: 301, observed: 'Location: https://www.joinr2d2.com/'}
+  - {url: 'https://www.joinr2d2.com/', status: 301, observed: 'Location: https://jeeva.ai'}
+  - {url: 'https://jeeva.ai/', status: 308, observed: 'Location: https://www.jeeva.ai/'}
+  - {url: 'https://involve.ai/', status: 301, observed: 'Location: https://jeeva.ai/'}
+  - {url: 'https://www.involve.ai/openapi.json', status: 522, observed: 'Cloudflare origin connection timeout — the involve.ai web origin is gone; only the root redirect rule survives'}
+  - {url: 'https://api.involve.ai/', status: 530, observed: 'Cloudflare error 1016 — no origin configured behind the api subdomain'}
+  - {url: 'https://app.involve.ai/', status: null, observed: 'NXDOMAIN — CNAME target dw2bsy685udop.cloudfront.net no longer resolves; the product application host is offline'}
+  - {url: 'https://api.github.com/orgs/involve-ai', status: 200, observed: 'login Involve-AI, name "Jeeva AI", blog jeeva.ai, public_repos 0'}
+surviving_surfaces:
+- url: https://city.involve.ai/
+  status: 200
+  what: >-
+    "CI.ty" — the Involve.AI customer community and knowledge base, hosted on Gainsight (inSided).
+    Still live and publicly readable. Its most recent product content is dated 2022; article
+    bodies render server-side but the category listings are client-rendered, so the sitemap at
+    /sitemap.xml is the only machine-readable index of it (109 URLs).
+- url: https://github.com/Involve-AI
+  status: 200
+  what: The company's GitHub organization — present, zero public repositories.
+integration_model:
+  note: >-
+    Captured from the company's own knowledge base rather than from a spec. Involve.AI never
+    offered an outbound developer API; it took admin-granted read access into the customer's
+    systems and wrote results back.
+  inbound:
+  - {system: Snowflake, mechanism: service account or managed account with view permissions, docs: 'https://city.involve.ai/platform-setup-and-integrations-56/snowflake-integration-and-access-110'}
+  - {system: Azure SQL Database, mechanism: database setup, docs: 'https://city.involve.ai/platform-setup-and-integrations-56/azure-sql-database-setup-guide-225'}
+  - {system: Salesforce, mechanism: access profile plus security token, docs: 'https://city.involve.ai/platform-setup-and-integrations-56/salesforce-enable-involve-ai-access-profile-setup-and-security-token-128'}
+  - {system: Zendesk, mechanism: account access grant, docs: 'https://city.involve.ai/platform-setup-and-integrations-56/setting-up-zendesk-for-involve-ai-access-127'}
+  - {system: Pendo, mechanism: setup guide, docs: 'https://city.involve.ai/platform-setup-and-integrations-56/pendo-setup-guide-220'}
+  outbound:
+  - mechanism: write-backs
+    docs: https://city.involve.ai/platform-setup-and-integrations-56/write-backs-data-involve-ai-shares-back-to-the-system-of-action-117
+    fields_returned: [health score, health score trend, product usage, NPS/CSAT score, interaction frequency, support ticket count, support ticket severity, customer sentiment, customer owner pulse]
+    note: >-
+      Verbatim from the article — write-back permissions must be enabled by the data source
+      administrator, and the data must already be on the dashboard before it is shared back.
+      There is no customer-callable endpoint; the transfer is configured, not programmed.

@@ -1,0 +1,24 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://city.involve.ai/knowledge-base (the company's own surviving documentation) plus live
+  probes of www.involve.ai/api, /developers, /docs and api.involve.ai.
+note: >-
+  No rate limits are documented, because no callable API is documented. Involve.AI never published
+  a developer API surface: the platform ingested data through admin-granted connections to source
+  systems and returned results through configured write-backs into the customer's CRM, neither of
+  which the customer calls. The developer paths on the marketing host are unreadable anyway — the
+  involve.ai web origin has been decommissioned (HTTP 522 on every path) and api.involve.ai has no
+  origin behind it (HTTP 530). NO RateLimits pointer is emitted in apis.yml: this file records a
+  verified absence, and a pointer would read as a published rate-limit signal the provider does
+  not serve.
+rate_limits: []
+limit_count: 0
+headers: []
+exhaustion_status: null
+evidence:
+- {url: 'https://api.involve.ai/', status: 530}
+- {url: 'https://www.involve.ai/api', status: 522}
+- {url: 'https://www.involve.ai/developers', status: 522}
+- {url: 'https://www.involve.ai/docs', status: 522}
+- {url: 'https://city.involve.ai/platform-setup-and-integrations-56', status: 200, observed: '11 articles covering source-system access grants and write-backs; none documents a rate limit, quota or throttling header'}

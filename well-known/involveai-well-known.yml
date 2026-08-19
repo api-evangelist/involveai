@@ -1,0 +1,67 @@
+generated: '2026-08-13'
+method: probed
+source: live GET of /.well-known/* on every host named in apis.yml
+note: >-
+  Every well-known path probed returned a miss. api.involve.ai answers HTTP 530 (Cloudflare
+  "origin DNS error" — the record resolves to Cloudflare but no origin is configured behind it),
+  www.involve.ai answers HTTP 522 (Cloudflare origin connection timeout) on every path other than
+  the site root, which is served by a Cloudflare redirect rule, and app.involve.ai no longer
+  resolves at all (its CNAME target dw2bsy685udop.cloudfront.net is NXDOMAIN). Only
+  city.involve.ai — the Gainsight/inSided-hosted customer community — is a live origin, and it
+  returns a real HTML 404 for every well-known path. NO WellKnown or SecurityTxt pointer is
+  emitted in apis.yml: this file records an absence, not a served discovery surface.
+hosts:
+- host: api.involve.ai
+  reachable: false
+  origin_status: 530
+  note: Cloudflare error 1016 shell — DNS resolves to Cloudflare, no origin configured
+  documents:
+  - {path: /.well-known/security.txt, status: 530, file: null}
+  - {path: /.well-known/openid-configuration, status: 530, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 530, file: null}
+  - {path: /.well-known/api-catalog, status: 530, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 530, file: null}
+  - {path: /.well-known/agent-card.json, status: 530, file: null}
+  - {path: /.well-known/agent.json, status: 530, file: null}
+- host: www.involve.ai
+  reachable: false
+  origin_status: 522
+  note: >-
+    Root 301s to https://www.joinr2d2.com/ then to https://www.jeeva.ai/ via a Cloudflare
+    redirect rule; every other path 522s because the involve.ai web origin is gone.
+  documents:
+  - {path: /.well-known/security.txt, status: 522, file: null}
+  - {path: /.well-known/openid-configuration, status: 522, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 522, file: null}
+  - {path: /.well-known/api-catalog, status: 522, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 522, file: null}
+  - {path: /.well-known/agent-card.json, status: 522, file: null}
+  - {path: /.well-known/agent.json, status: 522, file: null}
+- host: app.involve.ai
+  reachable: false
+  origin_status: null
+  note: >-
+    NXDOMAIN. The application host linked from the customer community
+    (https://app.involve.ai/) CNAMEs to dw2bsy685udop.cloudfront.net, which no longer resolves —
+    the Involve.AI product application is offline.
+  documents: []
+- host: city.involve.ai
+  reachable: true
+  origin_status: 200
+  note: >-
+    Gainsight (inSided) hosted customer community, the only live Involve.AI origin. Real HTML
+    404s on every well-known path.
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+summary:
+  hosts_probed: 4
+  paths_probed: 26
+  documents_found: 0
+  security_txt: false
+  agent_card: false

@@ -1,0 +1,36 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  Unauthenticated registry metadata endpoints (registry.npmjs.org, pypi.org/pypi/*/json,
+  rubygems.org/api/v1/gems/*.json) plus the GitHub organization API, probed 2026-08-13.
+note: >-
+  No first-party Involve.AI client library exists on any public registry. Involve.AI shipped no
+  developer SDK because it shipped no public developer API — the platform consumed customer data
+  through admin-granted connections to source systems (Salesforce, Zendesk, Snowflake, Azure SQL,
+  Pendo) configured in a no-code Data Mapping tool, and pushed health scores back through
+  "write-backs" into the customer's CRM. The company's GitHub organization exists
+  (https://github.com/Involve-AI, created 2020-08-19, now renamed "Jeeva AI") but publishes
+  ZERO public repositories. No Packages or SDKs pointer is emitted in apis.yml: this file records
+  a verified absence, not a shipped library.
+packages: []
+probes:
+- {registry: npm, name: involve.ai, url: 'https://registry.npmjs.org/involve.ai', status: 404, version: null}
+- {registry: npm, name: involveai, url: 'https://registry.npmjs.org/involveai', status: 404, version: null}
+- {registry: pypi, name: involveai, url: 'https://pypi.org/pypi/involveai/json', status: 404, version: null}
+- {registry: pypi, name: involve-ai, url: 'https://pypi.org/pypi/involve-ai/json', status: 404, version: null}
+- {registry: rubygems, name: involveai, url: 'https://rubygems.org/api/v1/gems/involveai.json', status: 404, version: null}
+- {registry: github, name: involveai, url: 'https://api.github.com/orgs/involveai', status: 404, version: null}
+- {registry: github, name: involvesoft, url: 'https://api.github.com/orgs/involvesoft', status: 404, version: null}
+- registry: github
+  name: Involve-AI
+  url: https://api.github.com/orgs/involve-ai
+  status: 200
+  version: null
+  public_repos: 0
+  note: >-
+    The organization is real and belongs to this company (login "Involve-AI"), but its display
+    name is now "Jeeva AI", its blog field is jeeva.ai, and it hosts no public repositories.
+summary:
+  package_count: 0
+  official_count: 0
+  registries_probed: [npm, pypi, rubygems, github]

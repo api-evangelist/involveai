@@ -1,0 +1,19 @@
+generated: '2026-08-13'
+method: probed
+source: https://www.involve.ai/pricing
+note: >-
+  Involve.AI publishes no plans. The pricing page cannot be read because the involve.ai web origin
+  is gone — every path other than the site root returns Cloudflare 522, and the root itself is a
+  redirect rule that lands on the successor brand at www.jeeva.ai. Nothing on the surviving
+  Involve.AI surface (the city.involve.ai customer community) publishes a price, a tier, a quota
+  or an overage. The company sold through a Customer Success Manager engagement — its own
+  onboarding articles route users to "your CSM" for scoping and data mapping — so there was no
+  self-serve plan to record even while the site was live.
+plans: []
+plan_count: 0
+currency: null
+billing_periods: []
+evidence:
+- {url: 'https://www.involve.ai/pricing', status: 522}
+- {url: 'https://www.involve.ai/', status: 301, observed: 'redirects to https://www.joinr2d2.com/ then https://www.jeeva.ai/'}
+- {url: 'https://city.involve.ai/knowledge-base', status: 200, observed: 'customer knowledge base — no pricing, plan or quota content'}
