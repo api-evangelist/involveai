@@ -41,7 +41,7 @@ x-image-note: >-
   The former image (https://www.involve.ai/favicon.ico) now returns HTTP 522 — the involve.ai web
   origin is gone. Replaced 2026-08-13 with the Involve.AI logo served from the company's own live
   customer community CDN (probed 200, image/webp, 96318 bytes).
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-08-13'
 tags:
