@@ -47,6 +47,8 @@ accessModel:
   source: []
   generated: '2026-07-22'
   method: derived
+  source:
+  - {url: 'https://www.involve.ai/', status: 301, note: 'declared website redirects to https://www.jeeva.ai/ — a different registrable domain (involve.ai -> jeeva.ai), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
 image: https://uploads-us-west-2.insided.com/involve-en/attachment/70ee02e8-dba6-4699-b6ec-894a6c75b81a.png
 x-image-note: >-
   The former image (https://www.involve.ai/favicon.ico) now returns HTTP 522 — the involve.ai web
